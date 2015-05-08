@@ -2,7 +2,11 @@
   <h3> Your clients: </h3>
   <ul>
     <% @all_clients.each() do |client| %>
-      <li><%= client.name() %></li>
+      <li><h4><%= client.name() %><h4></li>
+      <form action="/delete_client/<%=client.id()%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" class="btn-danger">Delete</button>
+      </form>
     <% end %>
   </ul>
 <% else %>
@@ -14,3 +18,7 @@
   <input id="client_name" name="client_name" type="text">
   <button type="submit" class="btn-success">Add new client</button>
 </form>
+
+<hr>
+
+<p><a href="/">Return to Main Page</a></p>

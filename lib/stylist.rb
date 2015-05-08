@@ -38,7 +38,7 @@ class Stylist
 
   define_method(:clients) do
     returned_clients = []
-    db_clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{self.id()} ORDER BY name ASC")
+    db_clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{self.id()}")
     db_clients.each() do |client|
       name = client.fetch("name")
       stylist_id = client.fetch("stylist_id").to_i

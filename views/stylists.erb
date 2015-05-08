@@ -2,7 +2,13 @@
   <h3> Your stylists: </h3>
   <ul>
     <% @all_stylists.each() do |stylist| %>
-      <li><a href="/single_stylist/<%= stylist.id() %>"><%= stylist.name() %></a></li>
+      <li><h4><a href="/single_stylist/<%= stylist.id() %>"><%= stylist.name() %></a></h4></li>
+      <form action="/delete_stylist/<%=stylist.id()%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" class="btn-danger">Delete</button>
+      </form>
+
+      <!-- <p><a href="/delete_stylist/<%= stylist.id() %>" method="post">---delete</a></p> -->
     <% end %>
   </ul>
 <% else %>
@@ -14,3 +20,5 @@
   <input id="stylist_name" name="stylist_name" type="text">
   <button type="submit" class="btn-success">Add new stylist</button>
 </form>
+
+<p><a href="/">Return to Main Page</a></p>

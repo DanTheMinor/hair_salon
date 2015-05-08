@@ -37,7 +37,6 @@ patch('/single_stylist/:id') do
   @stylist_list = Stylist.find(params.fetch("id").to_i)
   client_ids = params.fetch("client_ids", [])
   @stylist_list.update({:client_ids => client_ids})
-  binding.pry
   @all_clients = Client.all()
   erb(:single_stylist)
 end
@@ -53,6 +52,20 @@ post('/new_client') do
   stylist_id = nil #stylist id is not assigned at creation
   new_client = Client.new(:name => name, :stylist_id => stylist_id)
   new_client.save()
+  @all_clients = Client.all()
+  erb(:clients)
+end
+
+delete('/delete_stylist/:id') do
+  @stylist = Stylist.find(params.fetch("id").to_i)
+  @stylist.delete()
+  @all_stylists = Stylist.all()
+  erb(:stylists)
+end
+
+delete('/delete_client/:id') do
+  @client = Client.find(params.fetch("id").to_i)
+  @client.delete()
   @all_clients = Client.all()
   erb(:clients)
 end

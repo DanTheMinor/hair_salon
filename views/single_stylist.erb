@@ -18,8 +18,15 @@
   <% @all_clients.each do |client| %>
     <div class="checkbox">
       <label>
-        <input type="checkbox" name="client_ids[]" value="<%= client.id()%>"><%= client.name()%>
+        <% if client.stylist_id() == 0 %>
+          <input type="checkbox" name="client_ids[]" value="<%= client.id()%>"><%= client.name()%>
+        <% else %>
+          <input type="checkbox" name="client_ids[]" value="<%= client.id()%>"><%= client.name()%>   (Warning, client has already been assigned)
+        <% end %>
       </label>
     </div>
   <% end %>
-<button type="submit">Add clients</button>
+<button type="submit">Assign clients</button>
+
+<p><a href="/">Return to Main Page</a></p>
+<p><a href="/stylists">Return to All Stylists</a></p>
