@@ -13,7 +13,7 @@
 
 <hr>
 
-<form action="/single_stylist/<@stylist_list.id() %>" method="post">
+<form action="/single_stylist/<%@stylist_list.id() %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <% @all_clients.each do |client| %>
     <div class="checkbox">
