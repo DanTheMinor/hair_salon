@@ -33,3 +33,7 @@ get('/clients') do
   @all_clients = Client.all()
   erb(:clients)
 end
+
+post('/new_client') do
+  name = params.fetch()
+end

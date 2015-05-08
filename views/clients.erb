@@ -1,7 +1,7 @@
 <% if @all_clients.any? %>
   <h3> Your clients: </h3>
   <ul>
-    <% @all_clients.each() do |client|
+    <% @all_clients.each() do |client| %>
       <li><%= client.name() %></li>
     <% end %>
   </ul>
@@ -10,3 +10,7 @@
 <% end %>
 
 <form action="/new_client" method="post">
+  <label for="client_name">Name of your client: </label>
+  <input id="client_name" name="client_name" type="text">
+  <button type="submit" class="btn-success">Add new client</button>
+</form>

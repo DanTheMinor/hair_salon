@@ -26,7 +26,7 @@ end
 
 describe('The client path', {:type => :feature}) do
   it("displays a list of all clients") do
-    test_client = Client.new({name: 'Dan', id: 1})
+    test_client = Client.new({name: 'Dan', id: 1, stylist_id: 1})
     test_client.save()
     visit('/')
     click_link('View a list of clients')
