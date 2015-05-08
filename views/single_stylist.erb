@@ -1,0 +1,14 @@
+<h3><%= @stylist_list.name() %></h3>
+
+<% if @stylist_list.clients().any? %>
+  <h3>All clients assigned to <%= @stylist_list.name() %>:</h3>
+  <ul>
+    <% @stylist_list.clients().each do |client|%>
+      <li><%= client.name()%></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h4>You currently have no clients assigned to <%= @stylist_list.name() %></h4>
+<% end %>
+
+<hr>

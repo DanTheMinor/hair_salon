@@ -1,0 +1,12 @@
+<% if @all_clients.any? %>
+  <h3> Your clients: </h3>
+  <ul>
+    <% @all_clients.each() do |client|
+      <li><%= client.name() %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h4>You currently have no clients</h4>
+<% end %>
+
+<form action="/new_client" method="post">
