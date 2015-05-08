@@ -29,8 +29,15 @@ end
 #You need to add a patch and/or post method for single_stylist/:id
 get('/single_stylist/:id') do
   @stylist_list = Stylist.find(params.fetch("id").to_i())
+  @all_clients = Client.all()
+  erb(:single_stylist)
+end
+
+patch('/single_stylist/:id') do
+  @stylist_list = Stylist.find(params.fetch("id").to_i)
   client_ids = params.fetch("client_ids", [])
   @stylist_list.update({:client_ids => client_ids})
+  binding.pry
   @all_clients = Client.all()
   erb(:single_stylist)
 end

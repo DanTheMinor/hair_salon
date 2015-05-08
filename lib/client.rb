@@ -32,11 +32,21 @@ class Client
     @name = attributes.fetch(:name, @name)
     @id = self.id()
     @stylist_id = attributes.fetch(:stylist_id, 1)
-    DB.exec("UPDATE clients SET name = '#{@name}' WHERE id = #{@id};")
+    DB.exec("UPDATE clients SET name = '#{@name}', stylist_id = #{@stylist_id} WHERE id = #{@id};")
   end
 
   define_method(:delete) do
     DB.exec("DELETE FROM clients WHERE id = #{self.id()};")
+  end
+
+  define_singleton_method(:find) do |client_id|
+    search_client = nil
+    Client.all().each() do |client|
+      if client.id() == client_id
+        search_client = client
+      end
+    end
+    search_client
   end
 
 end
