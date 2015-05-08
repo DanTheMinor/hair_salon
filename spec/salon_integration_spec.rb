@@ -33,3 +33,12 @@ describe('The client path', {:type => :feature}) do
     expect(page).to have_content('Dan')
   end
 end
+
+describe('The client creation path', {:type => :feature}) do
+  it("adds a client to the list of clients") do
+    visit('/clients')
+    fill_in('client_name', :with => 'Dan')
+    click_button("Add new client")
+    expect(page).to have_content('Dan')
+  end
+end

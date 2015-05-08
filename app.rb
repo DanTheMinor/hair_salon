@@ -35,5 +35,10 @@ get('/clients') do
 end
 
 post('/new_client') do
-  name = params.fetch()
+  name = params.fetch("client_name")
+  stylist_id = nil #stylist id is not assigned at creation
+  new_client = Client.new(:name => name, :stylist_id => stylist_id)
+  new_client.save()
+  @all_clients = Client.all()
+  erb(:clients)
 end
