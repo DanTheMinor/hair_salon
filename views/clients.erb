@@ -7,6 +7,11 @@
         <input type="hidden" name="_method" value="delete">
         <button type="submit" class="btn-danger">Delete</button>
       </form>
+      <form action="/update_client/<%=client.id()%>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input id="client_new_name" name="client_new_name" type="text">
+        <button type="submit" class="btn-warning">Update</button>
+      </form>
     <% end %>
   </ul>
 <% else %>

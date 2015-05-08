@@ -69,3 +69,19 @@ delete('/delete_client/:id') do
   @all_clients = Client.all()
   erb(:clients)
 end
+
+patch('/update_stylist/:id') do
+  new_name = params.fetch("stylist_new_name")
+  @stylist = Stylist.find(params.fetch("id").to_i)
+  @stylist.update({:name => new_name})
+  @all_stylists = Stylist.all()
+  erb(:stylists)
+end
+
+patch('/update_client/:id') do
+  new_name = params.fetch("client_new_name")
+  @client = Client.find(params.fetch("id").to_i)
+  @client.update({:name => new_name})
+  @all_clients = Client.all()
+  erb(:clients)
+end

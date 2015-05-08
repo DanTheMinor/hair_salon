@@ -7,8 +7,11 @@
         <input type="hidden" name="_method" value="delete">
         <button type="submit" class="btn-danger">Delete</button>
       </form>
-
-      <!-- <p><a href="/delete_stylist/<%= stylist.id() %>" method="post">---delete</a></p> -->
+      <form action="/update_stylist/<%=stylist.id()%>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input id="stylist_new_name" name="stylist_new_name" type="text">
+        <button type="submit" class="btn-warning">Update</button>
+      </form>
     <% end %>
   </ul>
 <% else %>

@@ -1,6 +1,6 @@
 # Hair Salon
 
-This app is designed for a hair salon administrator as the user. The user is given the option to add/delete clients and stylists. The user is given the option to assign clients to a particular stylist.
+This app is designed for a hair salon administrator as the user. The user is given the option to add/delete/update clients and stylists. The user is given the option to assign clients to a particular stylist.
 
 # Database psql
 CREATE DATABASE hair_salon;
