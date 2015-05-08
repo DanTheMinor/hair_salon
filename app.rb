@@ -26,6 +26,9 @@ end
 
 get('/single_stylist/:id') do
   @stylist_list = Stylist.find(params.fetch("id").to_i())
+  client_ids = params.fetch("client_ids")
+  @stylist_list.update({:client_ids => client_ids})
+  @all_clients = Client.all()
   erb(:single_stylist)
 end
 

@@ -12,3 +12,14 @@
 <% end %>
 
 <hr>
+
+<form action="/single_stylist/<@stylist_list.id() %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <% @all_clients.each do |client| %>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="client_ids[]" value="<%= client.id()%>"><%= client.name()%>
+      </label>
+    </div>
+  <% end %>
+<button type="submit">Add clients</button>
